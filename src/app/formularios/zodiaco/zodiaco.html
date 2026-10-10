@@ -1,37 +1,161 @@
+<section class="max-w-5xl mx-auto my-8 px-4">
+  <h1 class="mb-6 text-2xl font-bold tracking-tight text-center text-gray-900">Signo Zodiacal Chino</h1>
 
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="p-6 bg-white border border-gray-200 rounded-lg shadow">
+      <h2 class="mb-4 pb-2 text-lg font-semibold text-gray-900 border-b border-gray-200">Datos personales</h2>
 
-<form class="max-w-md mx-auto">
-  <div class="relative z-0 w-full mb-5 group">
-      <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
-      <label for="floating_email" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Email address</label>
-  </div>
-  <div class="relative z-0 w-full mb-5 group">
-      <input type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
-      <label for="floating_password" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Password</label>
-  </div>
-  <div class="relative z-0 w-full mb-5 group">
-      <input type="password" name="repeat_password" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
-      <label for="floating_repeat_password" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Confirm password</label>
-  </div>
-  <div class="grid md:grid-cols-2 md:gap-6">
-    <div class="relative z-0 w-full mb-5 group">
-        <input type="text" name="floating_first_name" id="floating_first_name" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
-        <label for="floating_first_name" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">First name</label>
+      <form [formGroup]="formulario" (ngSubmit)="imprimir()">
+        <div class="mb-4">
+          <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            formControlName="nombre"
+            placeholder="Nombre"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label for="apaterno" class="block mb-2 text-sm font-medium text-gray-900">Apellido paterno</label>
+            <input
+              type="text"
+              id="apaterno"
+              formControlName="apaterno"
+              placeholder="Apellido paterno"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            />
+          </div>
+          <div>
+            <label for="amaterno" class="block mb-2 text-sm font-medium text-gray-900">Apellido materno</label>
+            <input
+              type="text"
+              id="amaterno"
+              formControlName="amaterno"
+              placeholder="Apellido materno"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            />
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="block mb-2 text-sm font-medium text-gray-900">Fecha de nacimiento</label>
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label for="dia" class="block mb-1 text-xs text-gray-600 text-center">Día</label>
+              <input
+                type="number"
+                id="dia"
+                formControlName="dia"
+                placeholder="22"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-center"
+              />
+            </div>
+            <div>
+              <label for="mes" class="block mb-1 text-xs text-gray-600 text-center">Mes</label>
+              <input
+                type="number"
+                id="mes"
+                formControlName="mes"
+                placeholder="2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-center"
+              />
+            </div>
+            <div>
+              <label for="anio" class="block mb-1 text-xs text-gray-600 text-center">Año</label>
+              <input
+                type="number"
+                id="anio"
+                formControlName="anio"
+                placeholder="2000"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-center"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <label class="block mb-2 text-sm font-medium text-gray-900">Sexo</label>
+          <div class="flex gap-6">
+            <div class="flex items-center">
+              <input
+                type="radio"
+                id="sexo-masculino"
+                value="Masculino"
+                formControlName="sexo"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
+              />
+              <label for="sexo-masculino" class="ms-2 text-sm font-medium text-gray-900">
+                Masculino
+              </label>
+            </div>
+            <div class="flex items-center">
+              <input
+                type="radio"
+                id="sexo-femenino"
+                value="Femenino"
+                formControlName="sexo"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
+              />
+              <label for="sexo-femenino" class="ms-2 text-sm font-medium text-gray-900">
+                Femenino
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <button
+            type="submit"
+            id="btn-imprimir"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
+          >
+            Imprimir
+          </button>
+          <button
+            type="button"
+            id="btn-limpiar"
+            (click)="limpiar()"
+            class="text-gray-900 bg-gray-200 hover:bg-gray-300 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5"
+          >
+            Limpiar
+          </button>
+        </div>
+      </form>
     </div>
-    <div class="relative z-0 w-full mb-5 group">
-        <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
-        <label for="floating_last_name" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Last name</label>
+
+    <div class="flex items-center justify-center p-6 bg-white border border-gray-200 rounded-lg shadow">
+      @if (resultado) {
+        <div class="text-center space-y-4">
+          <h3 class="text-xl text-gray-900">
+            {{ saludo }} <span class="font-bold">{{ nombreCompleto }}</span>
+          </h3>
+
+          <p class="text-lg text-gray-700">
+            Tienes <span class="font-bold">{{ edad }}</span> años
+          </p>
+
+          <p class="text-base text-gray-700">Tu signo zodiacal chino:</p>
+
+          <div class="flex flex-col items-center gap-3">
+            <img
+              id="img-signo-zodiacal"
+              [src]="imagen"
+              [alt]="signo"
+              class="w-40 h-40 object-cover border-4 border-blue-600 rounded-full shadow"
+            />
+            <span class="text-lg font-semibold text-blue-700">
+              {{ signo }}
+            </span>
+          </div>
+        </div>
+      } @else {
+        <p class="text-sm text-gray-500 text-center">
+          Llena el formulario y presiona <span class="font-semibold">Imprimir</span> para ver tu signo.
+        </p>
+      }
     </div>
   </div>
-  <div class="grid md:grid-cols-2 md:gap-6">
-    <div class="relative z-0 w-full mb-5 group">
-        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
-        <label for="floating_phone" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Phone number</label>
-    </div>
-    <div class="relative z-0 w-full mb-5 group">
-        <input type="text" name="floating_company" id="floating_company" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
-        <label for="floating_company" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Company (Ex. Google)</label>
-    </div>
-  </div>
-  <button type="submit" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Submit</button>
-</form>
+</section>

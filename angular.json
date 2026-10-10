@@ -22,6 +22,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*.png",
+                "input": "src/app/formularios/zodiaco/imagenes-signos",
+                "output": "imagenes-signos"
               }
             ],
             "styles": [
